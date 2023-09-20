@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Role;
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->enum('role', Role::ROLES);
+            $table->enum('size', Product::SIZES);
+            $table->enum('type', Product::TYPES);
+            $table->bigInteger('length');
+            $table->bigInteger('height');
+            $table->bigInteger('width');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('products');
     }
 };

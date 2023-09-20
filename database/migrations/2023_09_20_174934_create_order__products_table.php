@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('order__products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->enum('role', Role::ROLES);
+            $table->uuid('order_id');
+            $table->uuid('product_id');
+            $table->integer('quantity');
+            $table->bigInteger('total_price');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('order__products');
     }
 };
