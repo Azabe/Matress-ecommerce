@@ -16,6 +16,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->enum('size', Product::SIZES);
             $table->enum('type', Product::TYPES);
+            $table->string('image');
+            $table->string('description');
             $table->bigInteger('length');
             $table->bigInteger('height');
             $table->bigInteger('width');
