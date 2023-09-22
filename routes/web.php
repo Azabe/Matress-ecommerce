@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,15 @@ use App\Http\Controllers\Auth\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function() {
+    return 12;
+})->name('home');
 
-Route::get('/', [LoginController::class, 'index']);
-
+Route::prefix('auth')->group(function () {
+    Route::controller(LoginController::class)->prefix('login')->group(function () {
+        Route::get('/', 'index')->name('auth.login.index');
+    });
+    Route::controller(RegisterController::class)->prefix('register')->group(function () {
+        Route::get('/', 'index')->name('auth.register.index');
+    });
+});

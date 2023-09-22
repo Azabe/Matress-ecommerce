@@ -1,43 +1,65 @@
 @extends('layouts.public.app')
 
 @section('content')
-<div class="page-holder">
+@include('partials.page-top-info', [
+    'header' => 'Login',
+    'links' => [
+        [
+        'label' => 'Home',
+        'route' => 'home'
+        ],
+        [
+        'label' => 'Register',
+        'route' => "auth.register.index"
+        ],
+    ]
+])
+<section class="contact-section">
     <div class="container">
-        <section class="py-5 bg-light">
-            <div class="container">
-                <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
-                    <div class="col-lg-12">
-                        <h1 class="h2 text-uppercase mb-0">Welcome to this application</h1>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 contact-info">
+                <h3 class="text-center">Create an Account</h3>
+                <form class="contact-form">
+                   <div class="row">
+                    <div class="col-lg-6">
+                        <input type="text" placeholder="Your names">
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-5">
-            <!-- BILLING ADDRESS-->
-            <h2 class="h5 text-uppercase text-center mb-4">Create an account to start</h2>
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4">
-                    <form action="#">
-                        <div class="row gy-3">
-                            <div class="col-lg-12">
-                                <label class="form-label text-sm text-uppercase" for="firstName">First name </label>
-                                <input class="form-control form-control-lg" type="text" id="firstName"
-                                    placeholder="Enter your first name">
-                            </div>
-                            <div class="col-lg-12">
-                                <label class="form-label text-sm text-uppercase" for="lastName">Last name </label>
-                                <input class="form-control form-control-lg" type="text" id="lastName"
-                                    placeholder="Enter your last name">
-                            </div>
-                            <div class="col-lg-12 form-group">
-                                <button class="btn btn-dark" type="submit">Place order</button>
-                            </div>
+                    <div class="col-lg-6">
+                        <input type="email" placeholder="Your Telephone(250...)">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="email" placeholder="Your email">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="number" placeholder="Your Tin">
+                    </div>
+                    <div class="col-lg-6">
+                        <select>
+                            <option value="" selected disabled>Select your district</option>
+                            @foreach ($districts as $district)
+                                <option value="{{$district}}">{{$district}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="password" placeholder="Your password">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="password" placeholder="confirm password">
+                    </div>
+                   </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="site-btn">LOGIN NOW</button>
                         </div>
-                    </form>
-                </div>
-                <!-- ORDER SUMMARY-->
+                        <div class="col-lg-6" style="display: flex; align-items:center">
+                            <a href="{{route('auth.login.index')}}" style="color: #f51167">Already have an account?</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
     </div>
-</div>
+</section>
+
 @endsection
