@@ -1,7 +1,7 @@
 @extends('layouts.public.app')
 
 @section('content')
-@include('partials.page-top-info', [
+@include('partials.public.page-top-info', [
     'header' => 'Login',
     'links' => [
         [
@@ -53,7 +53,7 @@
                             <button class="site-btn">LOGIN NOW</button>
                         </div>
                         <div class="col-lg-6" style="display: flex; align-items:center">
-                            <a href="{{route('auth.login.index')}}" style="color: #f51167">Already have an account?</a>
+                            <a href="{{route('auth.login.index')}}" style="color: #00adef">Already have an account?</a>
                         </div>
                     </div>
                 </form>
