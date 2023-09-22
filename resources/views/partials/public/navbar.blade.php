@@ -27,7 +27,10 @@
                             <a href="{{route('auth.login.index')}}">Sign In</a> or <a
                                 href="{{route('auth.register.index')}}">Create Account</a>
                             @else
-                            <a href="#">Logout</a>
+                            <a href="#" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+                            <form action="{{route('auth.logout')}}" method="POST" style="display: none" id="logoutForm">
+                                @csrf
+                            </form>
                             @endif
                         </div>
                     </div>
