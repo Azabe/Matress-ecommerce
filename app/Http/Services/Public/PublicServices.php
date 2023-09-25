@@ -12,4 +12,10 @@ class PublicServices
         $latestProducts = Product::orderBy('created_at', 'desc')->limit(6)->get();
         return view('public.welcome', compact('latestProducts'));
     }
+
+    public function getProductsPage(): View
+    {
+        $products = Product::where('quantity', '>', 0)->get();
+        return view('public.products.index', compact('products'));
+    }
 }

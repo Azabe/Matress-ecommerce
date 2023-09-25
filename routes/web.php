@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\ProductsController as PublicProductsController;
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
@@ -28,6 +29,9 @@ use App\Models\Role;
 
 //public
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::prefix('products')->controller(PublicProductsController::class)->group(function() {
+    Route::get('/', 'index')->name('public.products.index');
+});
 
 // Authentication
 Route::prefix('auth')->group(function () {

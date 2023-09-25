@@ -102,4 +102,5 @@
         </div>
     </div>
 </section>
+@include('partials.public.footer')
 @endsection

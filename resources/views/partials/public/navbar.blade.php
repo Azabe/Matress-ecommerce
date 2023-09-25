@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-2 text-center text-lg-left">
                     <!-- logo -->
-                    <a href="./index.html" class="site-logo">
+                    <a href="/" class="site-logo">
                         <img src="/webAssets/img/logo.png" alt="" width="100%">
                     </a>
                 </div>
@@ -42,9 +42,9 @@
         <div class="container">
             <!-- menu -->
             <ul class="main-menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">About us</a></li>
-                <li><a href="#">Our Products</a></li>
+                <li><a href="{{route('public.products.index')}}">Our Products</a></li>
             </ul>
         </div>
     </nav>
