@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Public\HomeController;
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 
@@ -46,6 +47,10 @@ Route::prefix('auth')->group(function () {
 //Administrator
 Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin.home');
+
+    Route::prefix('users')->controller(AdminUsersController::class)->group(function () {
+        Route::get('/', 'index')->name('admin.users.index');
+    });
 });
 
 // Factory Manager

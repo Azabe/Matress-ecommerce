@@ -1,1 +1,9 @@
-<h2>Admin Home</h2>
+@extends('admin.layouts.app')
+
+@section('pageTitle')
+    Dashboard
+@endsection
+
+@section('content')
+    <h2>Dashboard</h2>
+@endsection

@@ -12753,19 +12753,19 @@ code {
   border-color: transparent;
 }
 .navbar.navbar-dark .sidebar-toggle {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .page-title {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .custom-dropdown .custom-dropdown-toggler .icon {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .navbar-right .navbar-nav .user-menu .dropdown-toggle > span {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .navbar-right .navbar-nav .user-menu .dropdown-toggle {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .search-form .input-group {
   background-color: #333743;
@@ -12773,16 +12773,16 @@ code {
 .navbar.navbar-dark .search-form .input-group .btn {
   background-color: #1d1f26;
   border-color: #1d1f26;
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark .search-form .input-group input.form-control {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark input::-moz-placeholder {
-  color: #bfc7d9;
+  color: #ede837;
 }
 .navbar.navbar-dark input::placeholder {
-  color: #bfc7d9;
+  color: #ede837;
 }
 
 /* Header Light */
@@ -13349,7 +13349,7 @@ label {
   display: flex;
   flex-direction: column;
   transform: translateX(-250px);
-  background-color: #1d1f26;
+  background-color: #00adef;
   top: 0;
   bottom: 0;
   background-attachment: fixed;
@@ -13371,7 +13371,7 @@ label {
   height: 100%;
   left: 0;
   top: 0;
-  background-color: rgba(29, 31, 38, 0.85);
+  background-color: #00adef;
   content: "";
 }
 
@@ -13396,7 +13396,7 @@ label {
 .sidebar .sidebar-inner > li > a {
   padding: 1rem 1.5rem;
   line-height: 20px;
-  color: #bfc7d9;
+  color: #ede837;
   display: block;
   text-decoration: none;
   text-transform: capitalize;
@@ -13524,10 +13524,10 @@ label {
   position: relative;
 }
 .sidebar .sub-menu > .active .sidenav-item-link {
-  color: #ffffff;
+  color: #ede837;
 }
 .sidebar .sub-menu .has-sub.active .sidenav-item-link {
-  color: #ffffff;
+  color: #ede837;
 }
 .sidebar .sub-menu .sub-menu .active a {
   color: #ffffff;
@@ -13542,7 +13542,7 @@ label {
   position: relative;
   font-size: 0.9375rem;
   white-space: nowrap;
-  color: #bfc7d9;
+  color: #ede837;
 }
 .sidebar .sub-menu > li .sub-menu {
   padding-left: 2.18rem;
@@ -13556,7 +13556,7 @@ label {
   content: "";
   top: 20px;
   left: -20px;
-  border: 1px solid #bfc7d9;
+  border: 1px solid #ede837;
   width: 10px;
 }
 
