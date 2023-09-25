@@ -2,6 +2,7 @@
 
 @section('content')
 @include('partials.public.navbar')
+
 <section class="hero-section">
     <div class="hero-slider owl-carousel">
         <div class="hs-item set-bg" data-setbg="/webAssets/img/bg.jpg">
@@ -10,7 +11,8 @@
                     <div class="col-xl-6 col-lg-7">
                         <span style="color: #00adef">New Arrivals</span>
                         <h2 style="font-weight: 900">denim jackets</h2>
-                        <p style="font-weight: 900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        <p style="font-weight: 900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
                             viverra maecenas accumsan lacus vel facilisis. </p>
                         <a href="#" class="site-btn sb-line">DISCOVER</a>
@@ -29,7 +31,8 @@
                     <div class="col-xl-6 col-lg-7">
                         <span>New Arrivals</span>
                         <h2 style="font-weight: 900">denim jackets</h2>
-                        <p style="font-weight: 900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        <p style="font-weight: 900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
                             viverra maecenas accumsan lacus vel facilisis. </p>
                         <a href="#" class="site-btn sb-line">DISCOVER</a>
@@ -47,6 +50,7 @@
         <div class="slide-num-holder" id="snh-1"></div>
     </div>
 </section>
+
 <section class="features-section">
     <div class="container-fluid">
         <div class="row">
@@ -74,6 +78,27 @@
                     <h2>Free & fast Delivery</h2>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="top-letest-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>LATEST PRODUCTS</h2>
+        </div>
+        <div class="product-slider owl-carousel">
+            @foreach ($latestProducts as $product)
+            <div class="product-item">
+                <div class="pi-pic">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="" height="400px">
+                </div>
+                <div class="pi-text">
+                    <h6>RWF {{$product->price}}</h6>
+                    <p>{{$product->description}} </p>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>

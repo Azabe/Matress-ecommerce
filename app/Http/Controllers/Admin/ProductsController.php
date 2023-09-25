@@ -7,7 +7,6 @@ use App\Http\Services\Admin\ProductsServices;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
 
 class ProductsController extends Controller
 {

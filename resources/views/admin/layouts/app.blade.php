@@ -144,7 +144,7 @@
             <li class="has-sub">
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#products"
                 aria-expanded="false" aria-controls="email">
-                <i class="mdi mdi-account-group"></i>
+                <i class="mdi mdi-database"></i>
                 <span class="nav-text">products</span> <b class="caret"></b>
               </a>
               <ul class="collapse" id="products" data-parent="#sidebar-menu">
