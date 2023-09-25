@@ -32,6 +32,7 @@ class UsersSeeder extends Seeder
                 'status' => User::ACTIVE,
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin12345'),
+                'password_confirmed' => true,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -45,6 +46,7 @@ class UsersSeeder extends Seeder
                 'status' => User::ACTIVE,
                 'email' => 'manager@gmail.com',
                 'password' => Hash::make('manager12345'),
+                'password_confirmed' => true,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -58,6 +60,7 @@ class UsersSeeder extends Seeder
                 'status' => User::ACTIVE,
                 'email' => 'customercare@gmail.com',
                 'password' => Hash::make('customercare12345'),
+                'password_confirmed' => true,
                 'created_at' => now(),
                 'updated_at' => now()
             ],

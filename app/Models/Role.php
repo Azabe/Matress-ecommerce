@@ -39,4 +39,9 @@ class Role extends Model
     {
         return $this->where('role', $role)->value('id');
     }
+
+    public function getRoleName(string $role): string
+    {
+        return $this->where('role', $role)->value('role');
+    }
 }

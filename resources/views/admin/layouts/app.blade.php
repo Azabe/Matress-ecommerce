@@ -185,7 +185,11 @@
                   </li>
 
                   <li class="dropdown-footer">
-                    <a class="dropdown-link-item" href=""> <i class="mdi mdi-logout"></i> Log Out </a>
+                    <a class="dropdown-link-item" href="#" onclick="document.getElementById('logoutForm').submit();"> <i
+                        class="mdi mdi-logout"></i>Logout</a>
+                    <form action="{{route('auth.logout')}}" method="POST" style="display: none" id="logoutForm">
+                      @csrf
+                    </form>
                   </li>
                 </ul>
               </li>
@@ -199,7 +203,7 @@
       <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
-        @yield('content')
+      @yield('content')
 
     </div>
   </div>
