@@ -31,4 +31,9 @@ class UsersController extends Controller
         ]);
         return (new UsersServices)->storeNewUser($request);
     }
+
+    public function update(string $userId): RedirectResponse
+    {
+        return (new UsersServices)->changeUserStatus($userId);
+    }
 }

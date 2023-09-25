@@ -57,4 +57,14 @@ class UsersServices
         SendMessage::dispatch($newUser['telephone'], $newUserMessage);
         return redirect()->route('admin.users.index')->with('success', 'New user has been created successfully');
     }
+
+    public function changeUserStatus(string $userId): RedirectResponse
+    {
+        $userToUpdate = User::find($userId);
+        $userToUpdate->update([
+            'status' => $userToUpdate->status === User::ACTIVE ? User::INACTIVE : User::ACTIVE
+        ]);
+
+        return back()->with('success', 'user status changed successfully');
+    }
 }

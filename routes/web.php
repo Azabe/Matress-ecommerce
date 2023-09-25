@@ -54,6 +54,9 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
             Route::get('/', 'create')->name('admin.users.create');
             Route::post('/', 'store')->name('admin.users.store');
         });
+        Route::prefix('{userId}')->group(function () {
+            Route::put('/', 'update')->name('admin.users.update');
+        });
     });
 });
 
