@@ -39,7 +39,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => Str::uuid()->toString(),
                 'role_id' => $role->getRoleId(Role::FACTORY_MANAGER),
-                'names' => 'system distributor',
+                'names' => 'system manager',
                 'residence' => 'KIGALI',
                 'tin' => 22222,
                 'telephone' => 250788222222,
@@ -60,6 +60,20 @@ class UsersSeeder extends Seeder
                 'status' => User::ACTIVE,
                 'email' => 'customercare@gmail.com',
                 'password' => Hash::make('customercare12345'),
+                'password_confirmed' => true,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => Str::uuid()->toString(),
+                'role_id' => $role->getRoleId(Role::DISTRIBUTOR),
+                'names' => 'system distributor',
+                'residence' => 'KIGALI',
+                'tin' => 4444,
+                'telephone' => 250788444444,
+                'status' => User::ACTIVE,
+                'email' => 'distributor@gmail.com',
+                'password' => Hash::make('distributor12345'),
                 'password_confirmed' => true,
                 'created_at' => now(),
                 'updated_at' => now()

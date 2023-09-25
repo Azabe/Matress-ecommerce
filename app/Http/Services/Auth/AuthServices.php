@@ -41,6 +41,7 @@ class AuthServices
             'tin' => $request->tin,
             'telephone' => $request->telephone,
             'status' => User::ACTIVE,
+            'password_confirmed' => true,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'created_at' => now(),
@@ -55,11 +56,18 @@ class AuthServices
         $credentials = ['email' => $email, 'password' => $password];
         return Auth::attempt($credentials) ?
             $this->redirectIfAuthenticated(Auth::user())
-            : back()->withInput()->with('danger', 'invalid credentials');
+            : back()->withInput()->with('error', 'invalid credentials');
     }
 
     public function redirectIfAuthenticated($user): RedirectResponse
     {
+        if ($user->status === User::INACTIVE) {
+            Auth::logout();
+            return back()->withInput()->with('error', 'Your account has been closed.. please contact the administrator');
+        }
+        if (!$user->password_confirmed) {
+            return back()->withInput()->with('error', 'Account not confirmed');
+        }
         if ($user->role->role === Role::ADMIN) {
             return redirect()->route('admin.home');
         }

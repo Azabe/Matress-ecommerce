@@ -72,10 +72,15 @@ Users
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#" onclick="document.getElementById('form-update-{{$user->id}}').submit();">
-                                            {{ $user->status === \App\Models\User::ACTIVE ? "Disable Account" : "Enable Account" }}
+                                        @if ($user->role->role!==\App\Models\Role::ADMIN)
+                                        <a class="dropdown-item" href="#"
+                                            onclick="document.getElementById('form-update-{{$user->id}}').submit();">
+                                            {{ $user->status === \App\Models\User::ACTIVE ? "Disable Account" : "Enable
+                                            Account" }}
                                         </a>
-                                        <form action="{{route('admin.users.update', $user->id)}}" method="post" id="form-update-{{$user->id}}">
+                                        @endif
+                                        <form action="{{route('admin.users.update', $user->id)}}" method="post"
+                                            id="form-update-{{$user->id}}">
                                             <input type="hidden" name="_method" value="put">
                                             @csrf
                                         </form>

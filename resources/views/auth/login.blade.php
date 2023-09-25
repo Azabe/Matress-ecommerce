@@ -19,6 +19,14 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 contact-info">
                 <h3 class="text-center">Login in your Account</h3>
+                @if (Session::has('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error...</strong> {{Session::get('error')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 <form class="contact-form" action="{{route('auth.login.store')}}" method="POST">
                     @csrf
                     <div class="mb-4">
