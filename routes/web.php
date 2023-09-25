@@ -7,6 +7,7 @@ use App\Http\Controllers\Public\HomeController;
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
+use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 
@@ -56,6 +57,17 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
         });
         Route::prefix('{userId}')->group(function () {
             Route::put('/', 'update')->name('admin.users.update');
+        });
+    });
+
+    Route::prefix('products')->controller(AdminProductsController::class)->group(function () {
+        Route::get('/', 'index')->name('admin.products.index');
+        Route::prefix('create')->group(function () {
+            Route::get('/', 'create')->name('admin.products.create');
+            Route::post('/', 'store')->name('admin.products.store');
+        });
+        Route::prefix('{productId}')->group(function () {
+            Route::delete('/', 'destroy')->name('admin.products.destroy');
         });
     });
 });

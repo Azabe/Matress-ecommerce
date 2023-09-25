@@ -12,6 +12,7 @@ class Product extends Model
 
     const SIZES = ['KING', 'QUEEN', 'SINGLE', 'BABY'];
     const TYPES = ['LALA SALAMA', 'SWEET DREAMS'];
+    const STATUS = ['IN STOCK', 'OUT OF STOCK'];
 
     const KINGSIZE = self::SIZES[0];
     const QUEENSIZE = self::SIZES[1];
@@ -20,6 +21,9 @@ class Product extends Model
 
     const LALASALAMA = self::TYPES[0];
     const SWEETDREAMS = self::TYPES[1];
+
+    const INSTOCK = self::STATUS[0];
+    const OUTOFSTOCK= self::STATUS[1];
 
     protected $fillable = [
         'id',
@@ -30,7 +34,9 @@ class Product extends Model
         'width',
         'length',
         'type',
-        'price'
+        'price',
+        'serial_number',
+        'status'
     ];
 
     protected $casts = [
