@@ -28,8 +28,8 @@ class ProductsController extends Controller
             'type' => 'required',
             'image' => 'required',
             'description' => 'required | unique:products',
-            'serial_number' => 'required | unique:products',
             'length' => 'required',
+            'quantity' => 'required',
             'height' => 'required',
             'width' => 'required',
             'price' => 'required'

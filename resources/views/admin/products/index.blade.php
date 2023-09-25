@@ -34,7 +34,7 @@ Products
                     <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Serial Number</th>
+                            <th>Quantity</th>
                             <th>Price</th>
                             <th>Size</th>
                             <th>Type</th>
@@ -49,7 +49,7 @@ Products
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image">
                             </td>
                             <td>
-                                {{$product->serial_number}}
+                                {{$product->quantity}}
                             </td>
                             <td>
                                 {{$product->price}} FRWS
@@ -61,16 +61,20 @@ Products
                                 {{$product->type}}
                             </td>
                             <td>
-                                @if ($product->status === \App\Models\Product::INSTOCK)
+                                @if ($product->quantity >= 20)
                                 <span class="badge badge-pill badge-success">
                                     In Stock
 
                                 </span>
-                                @else
-                                <span class="badge badge-pill badge-danger">
-                                    Out of Stock
-                                </span>
-                                @endif
+                                @elseif($product->quantity >= 10 && $product->quantity <20)
+                                 <span class="badge badge-pill badge-warning">
+                                    Running out
+                                    </span>
+                                    @else
+                                    <span class="badge badge-pill badge-danger">
+                                        Out of Stock
+                                    </span>
+                                    @endif
                             </td>
                             <td>
                                 <div class="dropdown">
@@ -110,11 +114,14 @@ Products
                                                     </ul>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    @if ($product->status === \App\Models\Product::INSTOCK)
+                                                    @if ($product->quantity > 0)
                                                     <a class="btn btn-info btn-pill" href="#">Update Product</a>
                                                     @else
-                                                    <a class="btn btn-danger btn-pill" href="#" onclick="document.getElementById('form-delete-{{$product->id}}').submit()">Delete Product</a>
-                                                    <form id="form-delete-{{$product->id}}" action="{{route('admin.products.destroy', $product->id)}}"
+                                                    <a class="btn btn-danger btn-pill" href="#"
+                                                        onclick="document.getElementById('form-delete-{{$product->id}}').submit()">Delete
+                                                        Product</a>
+                                                    <form id="form-delete-{{$product->id}}"
+                                                        action="{{route('admin.products.destroy', $product->id)}}"
                                                         method="POST">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">

@@ -18,12 +18,11 @@ return new class extends Migration
             $table->enum('type', Product::TYPES);
             $table->string('image');
             $table->string('description');
-            $table->string('serial_number');
             $table->bigInteger('length');
             $table->bigInteger('height');
             $table->bigInteger('width');
             $table->bigInteger('price');
-            $table->enum('status', Product::STATUS)->default(Product::INSTOCK);
+            $table->bigInteger('quantity');
             $table->timestamps();
         });
     }

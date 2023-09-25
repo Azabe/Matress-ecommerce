@@ -22,16 +22,6 @@ Create Product
 
                             <div class="row">
                                 <div class="form-group col-lg-6">
-                                    <label>Serial No</label>
-                                    <input type="text" placeholder="Serial number" name="serial_number"
-                                        class="{{ $errors->has('serial_number')? 'form-control error' : 'form-control' }}"
-                                        value="{{old('serial_number')}}">
-                                    @if ($errors->has('serial_number'))
-                                    <span class="text-danger">{{ $errors->first('serial_number') }}</span>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-lg-6">
                                     <label>Size</label>
                                     <select class="{{ $errors->has('size')? 'form-control error' : 'form-control' }}"
                                         name="size">
@@ -97,6 +87,15 @@ Create Product
                                         value="{{old('price')}}">
                                     @if ($errors->has('price'))
                                     <span class="text-danger">{{ $errors->first('price') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Quantity</label>
+                                    <input type="number" placeholder="Enter the quantity" name="quantity"
+                                        class="{{ $errors->has('quantity')? 'form-control error' : 'form-control' }}"
+                                        value="{{old('quantity')}}">
+                                    @if ($errors->has('quantity'))
+                                    <span class="text-danger">{{ $errors->first('quantity') }}</span>
                                     @endif
                                 </div>
 

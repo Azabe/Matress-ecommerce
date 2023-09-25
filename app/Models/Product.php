@@ -22,9 +22,6 @@ class Product extends Model
     const LALASALAMA = self::TYPES[0];
     const SWEETDREAMS = self::TYPES[1];
 
-    const INSTOCK = self::STATUS[0];
-    const OUTOFSTOCK= self::STATUS[1];
-
     protected $fillable = [
         'id',
         'image',
@@ -35,8 +32,7 @@ class Product extends Model
         'length',
         'type',
         'price',
-        'serial_number',
-        'status'
+        'quantity',
     ];
 
     protected $casts = [

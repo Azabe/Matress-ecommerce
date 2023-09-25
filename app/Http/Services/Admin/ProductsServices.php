@@ -32,11 +32,11 @@ class ProductsServices
             'type' => $request->type,
             'image' => $image,
             'description' => $request->description,
-            'serial_number' => $request->serial_number,
             'length' => $request->length,
             'height' => $request->height,
             'width' => $request->width,
-            'price' => $request->price
+            'price' => $request->price,
+            'quantity' => $request->quantity
         ];
 
         Product::create($newProduct);
