@@ -1,0 +1,85 @@
+@extends('admin.layouts.app')
+
+@section('pageTitle')
+Create User
+@endsection
+
+@section('content')
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card card-default">
+
+                    <div class="card-header">
+                        <h2>New user</h2>
+                        <a class="btn mdi mdi-format-list-bulleted" href="{{route('admin.users.index')}}"> </a>
+                    </div>
+
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Names</label>
+                                <input type="text" placeholder="User names" name="names"
+                                    class="{{ $errors->has('names')? 'form-control error' : 'form-control' }}"
+                                    value="{{old('names')}}">
+                                @if ($errors->has('names'))
+                                <span class="text-danger">{{ $errors->first('names') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="User email" name="email"
+                                    class="{{ $errors->has('email')? 'form-control error' : 'form-control' }}"
+                                    value="{{old('email')}}">
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Telephone</label>
+                                <input type="tel" placeholder="User Telephone(250...)" name="telephone"
+                                    class="{{ $errors->has('telephone')? 'form-control error' : 'form-control' }}"
+                                    value="{{old('telephone')}}" maxlength="12" minlength="12">
+                                @if ($errors->has('telephone'))
+                                <span class="text-danger">{{ $errors->first('telephone') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select class="form-control">
+                                    <option selected disabled>Select user role</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->role}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>TIN Number</label>
+                                <input type="text" placeholder="User Tin" name="tin"
+                                    class="{{ $errors->has('tin')? 'form-control error' : 'form-control' }}"
+                                    value="{{old('tin')}}" maxlength="5" minlength="5">
+                                @if ($errors->has('tin'))
+                                <span class="text-danger">{{ $errors->first('tin') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Residence</label>
+                                <input type="text" placeholder="User residence" name="residence"
+                                    class="{{ $errors->has('residence')? 'form-control error' : 'form-control' }}"
+                                    value="{{old('residence')}}" maxlength="5" minlength="5">
+                                @if ($errors->has('residence'))
+                                <span class="text-danger">{{ $errors->first('residence') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-footer mt-6">
+                                <button type="submit" class="btn btn-primary btn-pill">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

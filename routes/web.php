@@ -50,6 +50,10 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
 
     Route::prefix('users')->controller(AdminUsersController::class)->group(function () {
         Route::get('/', 'index')->name('admin.users.index');
+        Route::prefix('create')->group(function () {
+            Route::get('/', 'create')->name('admin.users.create');
+            Route::post('/', 'store')->name('admin.users.store');
+        });
     });
 });
 

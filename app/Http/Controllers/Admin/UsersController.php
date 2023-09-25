@@ -13,4 +13,8 @@ class UsersController extends Controller
     {
         return (new UsersServices)->getUsers();
     }
+    public function create(): View
+    {
+        return (new UsersServices)->createNewUser();
+    }
 }

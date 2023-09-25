@@ -133,7 +133,7 @@
                     </a>
                   </li>
                   <li>
-                    <a class="sidenav-item-link" href="">
+                    <a class="sidenav-item-link" href="{{route('admin.users.create')}}">
                       <span class="nav-text">New User</span>
 
                     </a>

@@ -51,7 +51,7 @@
                             @endif
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <select name="residence" class="{{ $errors->has('names')? 'error' : '' }}">
+                            <select name="residence" class="{{ $errors->has('residence')? 'error' : '' }}">
                                 <option value="" selected disabled>Select your district</option>
                                 @foreach ($districts as $district)
                                 <option value="{{$district}}">{{$district}}</option>

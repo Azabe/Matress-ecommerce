@@ -180,7 +180,7 @@ if (splinaArea3 !== null) {
       group: "social",
       height: 135,
       width: "100%",
-      background: "#9e6de0",
+      background: "#00adef",
       type: "area",
       sparkline: {
         enabled: true,
@@ -304,7 +304,7 @@ if (mixedChart1 !== null) {
         show: false,
       },
     },
-    colors: ["#9e6de0", "#faafca", "#f2e052"],
+    colors: ["#00adef", "#faafca", "#f2e052"],
     legend: {
       show: true,
       position: "top",
@@ -444,7 +444,7 @@ if (radialBarChart1 !== null) {
     },
     fill: {
       type: "solid",
-      colors: "#9e6de0",
+      colors: "#00adef",
     },
     series: [70],
     labels: ["Yearly Revenue"],
@@ -466,7 +466,7 @@ if (horBarChart1 !== null) {
       },
       stacked: true,
     },
-    colors: ["#9e6de0", "#faafca"],
+    colors: ["#00adef", "#faafca"],
     plotOptions: {
       bar: {
         horizontal: true,
@@ -526,7 +526,7 @@ if (horBarChart2 !== null) {
         show: false,
       },
     },
-    colors: ["#9e6de0", "#faafca"],
+    colors: ["#00adef", "#faafca"],
     plotOptions: {
       bar: {
         horizontal: true,
@@ -1546,7 +1546,7 @@ if (statusSmBarChart1 !== null) {
     fill: {
       opacity: 1,
     },
-    colors: "#9e6de0",
+    colors: "#00adef",
     tooltip: {
       followCursor: false,
       theme: "dark",
@@ -1716,7 +1716,7 @@ if (lineChart1 !== null) {
     plotOptions: {
       horizontal: false,
     },
-    colors: ["#9e6de0", "#fec400"],
+    colors: ["#00adef", "#fec400"],
     series: [
       {
         data: [6, 10, 8, 20, 15, 6, 21],
@@ -1790,7 +1790,7 @@ if (lineChart2 !== null) {
       horizontal: false,
     },
 
-    colors: ["#9e6de0", "#fec400"],
+    colors: ["#00adef", "#fec400"],
     series: [
       {
         data: [8, 15, 2, 12, 16, 25, 17],
@@ -1862,7 +1862,7 @@ if (lineChart3 !== null) {
       horizontal: false,
     },
 
-    colors: ["#9e6de0", "#fec400"],
+    colors: ["#00adef", "#fec400"],
     series: [
       {
         data: [3, 9, 12, 24, 14, 11, 26],
@@ -1934,7 +1934,7 @@ if (lineChart4 !== null) {
       horizontal: false,
     },
 
-    colors: ["#9e6de0", "#fec400"],
+    colors: ["#00adef", "#fec400"],
 
     legend: {
       show: true,
@@ -2009,7 +2009,7 @@ if (barChartLg1 !== null) {
         show: false,
       },
     },
-    colors: ["#9e6de0", "#faafca", "#46c79e"],
+    colors: ["#00adef", "#faafca", "#46c79e"],
     plotOptions: {
       bar: {
         horizontal: false,
@@ -2222,7 +2222,7 @@ if (barChartLg2 !== null) {
     stroke: {
       width: 0,
     },
-    colors: "#9e6de0",
+    colors: "#00adef",
     series: [
       {
         name: "Load Average",
@@ -2252,12 +2252,12 @@ if (barChartLg2 !== null) {
       offsetY: 0,
       style: {
         fontSize: "22px",
-        color: "#9e6de0",
+        color: "#00adef",
       },
     },
     fill: {
       type: "solid",
-      colors: "#9e6de0",
+      colors: "#00adef",
     },
     xaxis: {
       type: "datetime",
@@ -2309,7 +2309,7 @@ if (donutChart1 !== null) {
       height: 270,
     },
 
-    colors: ["#bb91f2", "#af81eb", "#9e6de0"],
+    colors: ["#bb91f2", "#af81eb", "#00adef"],
     labels: ["Desktop", "Tablet", "Mobile"],
     series: [45, 30, 25],
     legend: {
@@ -2341,7 +2341,7 @@ if (donutChart2 !== null) {
       height: 330,
     },
 
-    colors: ["#bb91f2", "#af81eb", "#9e6de0"],
+    colors: ["#bb91f2", "#af81eb", "#00adef"],
     labels: ["Desktop", "Tablet", "Mobile"],
     series: [45, 30, 25],
     legend: {
@@ -2377,7 +2377,7 @@ if (SimplePieChart !== null) {
       width: 350,
       type: "pie",
     },
-    colors: ["#9e6de0", "#46c79e", "#fd5190"],
+    colors: ["#00adef", "#46c79e", "#fd5190"],
     labels: ["First Data", "Second Data", "Third Data"],
     legend: {
       position: "top",
@@ -2451,9 +2451,9 @@ if (ariaChartExample !== null) {
         show: false,
       },
     },
-    colors: ["#9e6de0", "#faafca"],
+    colors: ["#00adef", "#faafca"],
     fill: {
-      colors: ["#9e6de0", "#faafca"],
+      colors: ["#00adef", "#faafca"],
       type: "solid",
     },
     dataLabels: {
