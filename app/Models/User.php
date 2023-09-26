@@ -79,6 +79,12 @@ class User extends Authenticatable
         return $this->hasOne(Cart::class, 'user_id', 'id');
     }
 
+    public function getNumberOfProductsInCart(): int
+    {
+        return !is_null($this->cart) ?
+            $this->cart->products->count() : 0;
+    }
+
     /**
      * Get the orders associated with the User
      *

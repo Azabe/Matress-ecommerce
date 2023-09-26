@@ -36,7 +36,11 @@
                 <h3 class="p-price">{{$product->price}} RWF</h3>
                 <h4 class="p-stock">Available: <span>In Stock</span></h4>
                 @can('add-product-to-cart')
-                <a href="#" class="site-btn">ADD TO CART</a>
+                <a href="#" class="site-btn" onclick="document.getElementById('product-cart-{{$product->id}}').submit();">ADD TO CART</a>
+                <form action="{{route('distributor.cart.products.store')}}" method="POST" id="product-cart-{{$product->id}}">
+                    @csrf
+                    <input type="hidden" name="productId" value="{{$product->id}}">
+                </form>
                 @else
                 <span class="text-danger"><b>only authenticated distributors can add this product to cart</b></span>
                 @endcan

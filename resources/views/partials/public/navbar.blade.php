@@ -16,7 +16,9 @@
                         <div class="up-item">
                             <div class="shopping-card">
                                 <i class="flaticon-bag"></i>
-                                <span>0</span>
+                                <span>
+                                    {{Auth::user()->getNumberOfProductsInCart()}}
+                                </span>
                             </div>
                             <a href="#">Shopping Cart</a>
                         </div>

@@ -12,7 +12,8 @@ use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 
-use App\Http\Controllers\Distributor\HomeController as DistributorHomeController;
+use App\Http\Controllers\Distributor\CartController as DistributorCartController;
+
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
 
@@ -86,5 +87,7 @@ Route::middleware('auth:' . Role::FACTORY_MANAGER . '')->prefix('manager')->grou
 
 //Distributor
 Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->group(function () {
-    Route::get('/', [DistributorHomeController::class, 'index'])->name('distributor.home');
+   Route::prefix('cart')->controller(DistributorCartController::class)->group(function() {
+    Route::post('/', 'store')->name('distributor.cart.products.store');
+   });
 });
