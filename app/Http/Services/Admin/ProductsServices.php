@@ -28,6 +28,7 @@ class ProductsServices
         $image = $this->saveImage($uploadedImage);
         $newProduct = [
             'id' => Str::uuid()->toString(),
+            'title' => $request->title,
             'size' => $request->size,
             'type' => $request->type,
             'image' => $image,

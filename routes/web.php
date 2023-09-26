@@ -29,8 +29,11 @@ use App\Models\Role;
 
 //public
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::prefix('products')->controller(PublicProductsController::class)->group(function() {
+Route::prefix('products')->controller(PublicProductsController::class)->group(function () {
     Route::get('/', 'index')->name('public.products.index');
+    Route::prefix('{id}')->controller(PublicProductsController::class)->group(function () {
+        Route::get('/', 'show')->name('public.products.show');
+    });
 });
 
 // Authentication

@@ -34,7 +34,7 @@ Products
                     <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Quantity</th>
+                            <th>Title</th>
                             <th>Price</th>
                             <th>Size</th>
                             <th>Type</th>
@@ -49,7 +49,7 @@ Products
                                 <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image">
                             </td>
                             <td>
-                                {{$product->quantity}}
+                                {{$product->title}}
                             </td>
                             <td>
                                 {{$product->price}} FRWS
@@ -94,7 +94,7 @@ Products
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">
-                                                        Product #{{$product->serial_number}}
+                                                        {{$product->title}}
                                                     </h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
@@ -103,6 +103,8 @@ Products
                                                 </div>
                                                 <div class="modal-body">
                                                     <ul class="list-group">
+                                                        <li class="list-group-item disabled" aria-disabled="true">
+                                                            Product Quantity: {{$product->quantity}}</li>
                                                         <li class="list-group-item disabled" aria-disabled="true">
                                                             Product Height: {{$product->height}}</li>
                                                         <li class="list-group-item disabled" aria-disabled="true">

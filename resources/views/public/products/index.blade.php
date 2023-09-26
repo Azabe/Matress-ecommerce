@@ -25,7 +25,10 @@
             <div class="col-lg-12  order-1 order-lg-2 mb-5 mb-lg-0">
                 <div class="row">
                     @foreach ($products as $product)
-                    @include('public.products.components.product', ['product' => $product])
+                    <div class="col-md-4 col-sm-6">
+                        @include('public.products.components.product', ['product' => $product, 'height' => '700px',
+                        'show_tag_sale' => true])
+                    </div>
                     @endforeach
                     <div class="text-center w-100 pt-3">
                         <button class="site-btn sb-line sb-dark">LOAD MORE</button>
@@ -35,4 +38,5 @@
         </div>
     </div>
 </section>
+@include('partials.public.footer')
 @endsection

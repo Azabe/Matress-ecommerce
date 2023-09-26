@@ -15,13 +15,12 @@
                             eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
                             viverra maecenas accumsan lacus vel facilisis. </p>
-                        <a href="#" class="site-btn sb-line">DISCOVER</a>
-                        <a href="#" class="site-btn sb-white">ADD TO CART</a>
+                        <a href="{{route('public.products.index')}}" class="site-btn sb-line">SHOP</a>
                     </div>
                 </div>
                 <div class="offer-card">
                     <span>from</span>
-                    <h2>$29</h2>
+                    <h3 style="color:#ede837">{{$minimumProductPrice}} FRWS</h3>
                 </div>
             </div>
         </div>
@@ -35,13 +34,12 @@
                             eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo
                             viverra maecenas accumsan lacus vel facilisis. </p>
-                        <a href="#" class="site-btn sb-line">DISCOVER</a>
-                        <a href="#" class="site-btn sb-white">ADD TO CART</a>
+                        <a href="{{route('public.products.index')}}" class="site-btn sb-line">SHOP</a>
                     </div>
                 </div>
                 <div class="offer-card">
                     <span>from</span>
-                    <h2>$29</h2>
+                    <h3 style="color:#ede837">{{$minimumProductPrice}} FRWS</h3>
                 </div>
             </div>
         </div>
@@ -89,15 +87,8 @@
         </div>
         <div class="product-slider owl-carousel">
             @foreach ($latestProducts as $product)
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="" height="400px">
-                </div>
-                <div class="pi-text">
-                    <h6>RWF {{$product->price}}</h6>
-                    <p>{{$product->description}} </p>
-                </div>
-            </div>
+            @include('public.products.components.product', ['product' => $product, 'height' => '400px',
+            'show_tag_sale' => false])
             @endforeach
         </div>
     </div>

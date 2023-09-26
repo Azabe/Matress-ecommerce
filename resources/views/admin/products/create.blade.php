@@ -22,6 +22,15 @@ Create Product
 
                             <div class="row">
                                 <div class="form-group col-lg-6">
+                                    <label>Title</label>
+                                    <input type="text" placeholder="Enter the title" name="title"
+                                        class="{{ $errors->has('title')? 'form-control error' : 'form-control' }}"
+                                        value="{{old('title')}}">
+                                    @if ($errors->has('title'))
+                                    <span class="text-danger">{{ $errors->first('title') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group col-lg-6">
                                     <label>Size</label>
                                     <select class="{{ $errors->has('size')? 'form-control error' : 'form-control' }}"
                                         name="size">

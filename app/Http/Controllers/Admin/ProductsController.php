@@ -23,10 +23,11 @@ class ProductsController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'title' => 'required',
             'size' => 'required',
             'type' => 'required',
             'image' => 'required',
-            'description' => 'required | unique:products',
+            'description' => 'required',
             'length' => 'required',
             'quantity' => 'required',
             'height' => 'required',
