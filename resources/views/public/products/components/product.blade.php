@@ -14,6 +14,6 @@
     </div>
     <div class="pi-text">
         <h6>RWF {{$product->price}}</h6>
-        <p>{{$product->description}} </p>
+        <p>{{$product->title}} </p>
     </div>
 </div>

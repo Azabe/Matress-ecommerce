@@ -87,7 +87,11 @@ Route::middleware('auth:' . Role::FACTORY_MANAGER . '')->prefix('manager')->grou
 
 //Distributor
 Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->group(function () {
-   Route::prefix('cart')->controller(DistributorCartController::class)->group(function() {
-    Route::post('/', 'store')->name('distributor.cart.products.store');
-   });
+    Route::prefix('cart')->controller(DistributorCartController::class)->group(function () {
+        Route::get('/', 'index')->name('distributor.cart.products.index');
+        Route::post('/', 'store')->name('distributor.cart.products.store');
+        Route::prefix('{productId}')->group(function () {
+            Route::post('destroy', 'destroy')->name('distributor.cart.products.destroy');
+        });
+    });
 });

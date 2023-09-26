@@ -20,7 +20,7 @@
                                     {{Auth::user()->getNumberOfProductsInCart()}}
                                 </span>
                             </div>
-                            <a href="#">Shopping Cart</a>
+                            <a href="{{route('distributor.cart.products.index')}}">Shopping Cart</a>
                         </div>
                         @endif
                         <div class="up-item">
