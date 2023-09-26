@@ -15,7 +15,7 @@
 ],
 [
 'label' => $product->title,
-'route' => ""
+'route' => "#"
 ],
 ]
 ])
@@ -35,11 +35,16 @@
                 <h2 class="p-title">{{$product->description }}</h2>
                 <h3 class="p-price">{{$product->price}} RWF</h3>
                 <h4 class="p-stock">Available: <span>In Stock</span></h4>
+                @can('add-product-to-cart')
                 <a href="#" class="site-btn">ADD TO CART</a>
+                @else
+                <span class="text-danger"><b>only authenticated distributors can add this product to cart</b></span>
+                @endcan
                 <div id="accordion" class="accordion-area">
                     <div class="panel">
                         <div class="panel-header" id="headingOne">
-                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">description</button>
+                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse1"
+                                aria-expanded="true" aria-controls="collapse1">description</button>
                         </div>
                         <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="panel-body">

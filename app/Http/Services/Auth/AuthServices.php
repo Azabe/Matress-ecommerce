@@ -75,7 +75,7 @@ class AuthServices
             return redirect()->route('manager.home');
         }
         if ($user->role->role === Role::DISTRIBUTOR) {
-            return redirect()->route('distributor.home');
+            return redirect()->route('home');
         }
     }
 
