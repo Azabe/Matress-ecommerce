@@ -25,7 +25,8 @@
                 <div class="cart-table">
                     <h3>Your Cart</h3>
                     @if (!is_null($myCart) && $myCart->products()->count() > 0)
-                    <form action="">
+                    <form action="{{route('distributor.orders.store')}}" method="POST" id="cart-form">
+                        @csrf
                         <div class="cart-table-warp">
                             <table>
                                 <thead>
@@ -44,7 +45,7 @@
                                             <div class="pc-title">
                                                 <a href="{{route('public.products.show', $product->id)}}">
                                                     <h4>{{$product->title}}</h4>
-                                                    <input type="hidden" name="productIds" value="{{$product->id}}">
+                                                    <input type="hidden" name="productIds[]" value="{{$product->id}}">
                                                 </a>
                                             </div>
                                         </td>
@@ -85,7 +86,7 @@
                 </div>
             </div>
             <div class="col-lg-4 card-right">
-                <a href="" class="site-btn">Proceed to checkout</a>
+                <button onclick="document.getElementById('cart-form').submit();" class="site-btn">Proceed to checkout</button>
                 <a href="{{route('public.products.index')}}" class="site-btn sb-dark">Continue shopping</a>
             </div>
         </div>

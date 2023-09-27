@@ -59,4 +59,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class, 'order__products', 'product_id', 'order_id')->withPivot('quantity', 'total_price');
     }
+
+    public function getProductPrice(string $id): int
+    {
+        return $this::where('id', $id)->value('price');
+    }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 
 use App\Http\Controllers\Distributor\CartController as DistributorCartController;
+use App\Http\Controllers\Distributor\OrdersController as DistributorOrdersController;
 
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
@@ -93,5 +94,10 @@ Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->grou
         Route::prefix('{productId}')->group(function () {
             Route::post('destroy', 'destroy')->name('distributor.cart.products.destroy');
         });
+    });
+
+    Route::prefix('orders')->controller(DistributorOrdersController::class)->group(function() {
+        Route::get('/', 'index')->name('distributor.orders.index');
+        Route::post('/', 'store')->name('distributor.orders.store');
     });
 });
