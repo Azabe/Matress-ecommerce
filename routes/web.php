@@ -10,12 +10,11 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 
-use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
-
 use App\Http\Controllers\Distributor\CartController as DistributorCartController;
 use App\Http\Controllers\Distributor\OrdersController as DistributorOrdersController;
 
 use App\Http\Controllers\CustomerCare\OrdersController as CustomerCareOrdersController;
+use App\Http\Controllers\Manager\OrdersController as ManagerOrdersController;
 
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
@@ -84,8 +83,11 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
 });
 
 // Factory Manager
-Route::middleware('auth:' . Role::FACTORY_MANAGER . '')->prefix('manager')->group(function () {
-    Route::get('/', [ManagerHomeController::class, 'index'])->name('manager.home');
+Route::middleware('auth:'. Role::FACTORY_MANAGER . '')->prefix('manager')->group(function() {
+    Route::controller(ManagerOrdersController::class)->group(function() {
+        Route::get('/', 'index')->name('manager.orders.index');
+        Route::put('/{id}', 'update')->name('manager.orders.update');
+    });
 });
 
 //Distributor
