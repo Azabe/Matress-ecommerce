@@ -4,6 +4,7 @@ namespace App\Http\Services\Manager;
 
 use App\Jobs\SendMessage;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,7 +13,10 @@ class OrdersServices
 {
     public function makeOrderAvailable(Request $request, string $orderId): RedirectResponse
     {
-        $orderToMakeAvailable = Order::with('user')->find($orderId);
+        $orderToMakeAvailable = Order::with('user')->with('products')->find($orderId);
+        foreach ($orderToMakeAvailable->products as $product) {
+            $this->updateProductQuantity($product->id, $product->pivot->quantity);
+        }
         $orderToMakeAvailable->update([
             'delivery_date' => $request->delivery_date,
             'status' => Order::APPROVED
@@ -38,5 +42,13 @@ class OrdersServices
             'total' => $totalOrders,
             'orders' => $orders
         ];
+    }
+
+    public function updateProductQuantity($productId, $quantity): void
+    {
+        $productToUpdateQuantity = Product::find($productId);
+        $productToUpdateQuantity->update([
+            'quantity' => $productToUpdateQuantity->quantity - $quantity
+        ]);
     }
 }
