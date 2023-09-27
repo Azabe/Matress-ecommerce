@@ -94,7 +94,7 @@
         <!-- Aplication Brand -->
         <div class="app-brand">
           <a href="#">
-            <span class="brand-name">ADMIN</span>
+            <span class="brand-name">CUSTOMER CARE</span>
           </a>
         </div>
         <!-- begin sidebar scrollbar -->
@@ -102,66 +102,11 @@
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
 
-
-
             <li class="active">
-              <a class="sidenav-item-link" href="{{route('admin.home')}}">
-                <i class="mdi mdi-briefcase-account-outline"></i>
-                <span class="nav-text">Dashboard</span>
+              <a class="sidenav-item-link" href="{{route('customercare.orders.index')}}">
+                <i class="mdi mdi-cart"></i>
+                <span class="nav-text">Pending Orders</span>
               </a>
-            </li>
-
-
-
-
-
-            <li class="section-title">
-              Users
-            </li>
-            <li class="has-sub">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
-                aria-expanded="false" aria-controls="email">
-                <i class="mdi mdi-account-group"></i>
-                <span class="nav-text">users</span> <b class="caret"></b>
-              </a>
-              <ul class="collapse" id="users" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li>
-                    <a class="sidenav-item-link" href="{{route('admin.users.index')}}">
-                      <span class="nav-text">Users List</span>
-
-                    </a>
-                  </li>
-                  <li>
-                    <a class="sidenav-item-link" href="{{route('admin.users.create')}}">
-                      <span class="nav-text">New User</span>
-
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li class="has-sub">
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#products"
-                aria-expanded="false" aria-controls="email">
-                <i class="mdi mdi-database"></i>
-                <span class="nav-text">products</span> <b class="caret"></b>
-              </a>
-              <ul class="collapse" id="products" data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                  <li>
-                    <a class="sidenav-item-link" href="{{route('admin.products.index')}}">
-                      <span class="nav-text">Products List</span>
-
-                    </a>
-                  </li>
-                  <li>
-                    <a class="sidenav-item-link" href="{{route('admin.products.create')}}">
-                      <span class="nav-text">New Product</span>
-                    </a>
-                  </li>
-                </div>
-              </ul>
             </li>
           </ul>
 

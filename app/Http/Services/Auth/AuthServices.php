@@ -77,6 +77,9 @@ class AuthServices
         if ($user->role->role === Role::DISTRIBUTOR) {
             return redirect()->route('home');
         }
+        if ($user->role->role === Role::CUSTOMER_CARE) {
+            return redirect()->route('customercare.orders.index');
+        }
     }
 
     public function getDistricts(): array

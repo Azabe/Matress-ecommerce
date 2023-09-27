@@ -15,6 +15,8 @@ use App\Http\Controllers\Manager\HomeController as ManagerHomeController;
 use App\Http\Controllers\Distributor\CartController as DistributorCartController;
 use App\Http\Controllers\Distributor\OrdersController as DistributorOrdersController;
 
+use App\Http\Controllers\CustomerCare\OrdersController as CustomerCareOrdersController;
+
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
 
@@ -103,5 +105,12 @@ Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->grou
             Route::get('/', 'show')->name('distributor.orders.show');
             Route::put('/', 'update')->name('distributor.orders.update');
         });
+    });
+});
+
+//Customer care
+Route::middleware('auth:'. Role::CUSTOMER_CARE . '')->prefix('customercare')->group(function() {
+    Route::controller(CustomerCareOrdersController::class)->group(function() {
+        Route::get('/', 'index')->name('customercare.orders.index');
     });
 });
