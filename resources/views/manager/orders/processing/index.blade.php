@@ -185,7 +185,7 @@ Processed Orders
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form action="{{route('manager.orders.update', $order->id)}}" method="POST">
+                                                <form action="{{route('manager.orders.processing.update', $order->id)}}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PUT">
                                                     <div class="modal-body">

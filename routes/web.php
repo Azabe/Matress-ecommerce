@@ -14,7 +14,8 @@ use App\Http\Controllers\Distributor\CartController as DistributorCartController
 use App\Http\Controllers\Distributor\OrdersController as DistributorOrdersController;
 
 use App\Http\Controllers\CustomerCare\OrdersController as CustomerCareOrdersController;
-use App\Http\Controllers\Manager\OrdersController as ManagerOrdersController;
+
+use App\Http\Controllers\Manager\ProcessingOrdersController;
 
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
@@ -83,10 +84,10 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
 });
 
 // Factory Manager
-Route::middleware('auth:'. Role::FACTORY_MANAGER . '')->prefix('manager')->group(function() {
-    Route::controller(ManagerOrdersController::class)->group(function() {
-        Route::get('/', 'index')->name('manager.orders.index');
-        Route::put('/{id}', 'update')->name('manager.orders.update');
+Route::middleware('auth:'. Role::FACTORY_MANAGER . '')->prefix('manager/orders')->group(function() {
+    Route::controller(ProcessingOrdersController::class)->prefix('pending')->group(function() {
+        Route::get('/', 'index')->name('manager.orders.processing.index');
+        Route::put('/{id}', 'update')->name('manager.orders.processing.update');
     });
 });
 

@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class ProcessingOrdersController extends Controller
 {
     public function index(): View
     {

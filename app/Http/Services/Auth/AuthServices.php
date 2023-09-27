@@ -72,7 +72,7 @@ class AuthServices
             return redirect()->route('admin.home');
         }
         if ($user->role->role === Role::FACTORY_MANAGER) {
-            return redirect()->route('manager.orders.index');
+            return redirect()->route('manager.orders.processing.index');
         }
         if ($user->role->role === Role::DISTRIBUTOR) {
             return redirect()->route('home');

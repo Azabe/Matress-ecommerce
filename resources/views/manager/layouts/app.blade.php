@@ -101,12 +101,30 @@
         <div class="sidebar-left" data-simplebar style="height: 100%;">
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
-
-            <li class="active">
-              <a class="sidenav-item-link" href="{{route('manager.orders.index')}}">
+            <li class="section-title">
+              Orders
+            </li>
+            <li class="has-sub">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
+                aria-expanded="false" aria-controls="email">
                 <i class="mdi mdi-cart"></i>
-                <span class="nav-text">Processed Orders</span>
+                <span class="nav-text">Orders</span> <b class="caret"></b>
               </a>
+              <ul class="collapse" id="users" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li>
+                    <a class="sidenav-item-link" href="{{route('manager.orders.processing.index')}}">
+                      <span class="nav-text">Processed Orders</span>
+
+                    </a>
+                  </li>
+                  <li>
+                    <a class="sidenav-item-link" href="">
+                      <span class="nav-text">Available Orders</span>
+                    </a>
+                  </li>
+                </div>
+              </ul>
             </li>
           </ul>
 

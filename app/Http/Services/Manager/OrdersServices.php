@@ -22,7 +22,7 @@ class OrdersServices
         $totalProcessingOrders = $query->count();
         $processingOrders = $query->with('products')->orderBy('created_at', 'desc')->get();
 
-        return view('manager.orders.index', compact('totalSumOfProcessingOrdersPrice', 'processingOrders', 'totalProcessingOrders'));
+        return view('manager.orders.processing.index', compact('totalSumOfProcessingOrdersPrice', 'processingOrders', 'totalProcessingOrders'));
     }
 
     public function makeOrderAvailable(Request $request, string $orderId): RedirectResponse
