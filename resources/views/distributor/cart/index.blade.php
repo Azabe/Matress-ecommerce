@@ -86,7 +86,8 @@
                 </div>
             </div>
             <div class="col-lg-4 card-right">
-                <button onclick="document.getElementById('cart-form').submit();" class="site-btn">Proceed to checkout</button>
+                <button onclick="document.getElementById('cart-form').submit();" class="site-btn">Proceed to
+                    checkout</button>
                 <a href="{{route('public.products.index')}}" class="site-btn sb-dark">Continue shopping</a>
             </div>
         </div>
@@ -119,11 +120,6 @@
 
         const grandTotalElement = document.querySelector('.total-cost h6 span');
         grandTotalElement.textContent = grandTotal.toFixed(2);
-    }
-
-    // Function to remove a product (you can implement this as needed)
-    function removeProduct(productId) {
-        document.getElementById('cart-product-remove-' + productId).submit();
     }
 
     // Add event listeners to quantity input elements

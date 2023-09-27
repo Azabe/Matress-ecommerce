@@ -96,8 +96,12 @@ Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->grou
         });
     });
 
-    Route::prefix('orders')->controller(DistributorOrdersController::class)->group(function() {
+    Route::prefix('orders')->controller(DistributorOrdersController::class)->group(function () {
         Route::get('/', 'index')->name('distributor.orders.index');
         Route::post('/', 'store')->name('distributor.orders.store');
+        Route::prefix('{id}')->group(function () {
+            Route::get('/', 'show')->name('distributor.orders.show');
+            Route::put('/', 'update')->name('distributor.orders.update');
+        });
     });
 });

@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
+            $table->bigInteger('code');
             $table->enum('status', Order::STATUSES)->default(Order::CREATED);
             $table->date('delivery_date')->nullable();
             $table->timestamps();

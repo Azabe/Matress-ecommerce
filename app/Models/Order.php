@@ -20,7 +20,7 @@ class Order extends Model
     const CANCELED = self::STATUSES[4];
 
     protected $fillable = [
-        'id', 'user_id', 'status', 'delivery_date'
+        'id', 'user_id', 'code', 'status', 'delivery_date'
     ];
 
     protected $casts = [
@@ -46,5 +46,30 @@ class Order extends Model
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'order__products', 'order_id', 'product_id')->withPivot('quantity', 'total_price');
+    }
+
+    public function renderOrderStatusBadge(): string
+    {
+        switch ($this->status) {
+            case 'CREATED':
+                return 'primary';
+                break;
+            case 'PENDING':
+                return 'secondary';
+                break;
+            case 'PROCESSING':
+                return 'info';
+                break;
+            case 'APPROVED':
+                return 'success';
+                break;
+            case 'CANCELED':
+                return 'danger';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
     }
 }

@@ -11,7 +11,7 @@ class PublicServices
     public function getHomePage(): View
     {
         $latestProducts = Product::orderBy('created_at', 'desc')->limit(6)->get();
-        $minimumProductPrice = Product::min('price');
+        $minimumProductPrice = Product::min('price') ?? 0;
         return view('public.welcome', compact('latestProducts', 'minimumProductPrice'));
     }
 

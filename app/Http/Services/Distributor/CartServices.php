@@ -48,4 +48,10 @@ class CartServices
             'id' => Str::uuid()->toString()
         ]);
     }
+
+    public function clearCart($user): void
+    {
+        $user->cart->products()->detach();
+        $user->cart->delete();
+    }
 }

@@ -3,7 +3,7 @@
     <h3 class="p-price">{{$product->price}} RWF</h3>
     <h4 class="p-stock">Available: <span>In Stock</span></h4>
     @can('add-product-to-cart')
-    @if (!Auth::user()->cart->products->contains($product->id))
+    @if (!Auth::user()->cart || !Auth::user()->cart->products->contains($product->id))
     <a href="#" class="site-btn" onclick="document.getElementById('product-cart-{{$product->id}}').submit();">ADD TO
         CART</a>
     <form action="{{route('distributor.cart.products.store')}}" method="POST" id="product-cart-{{$product->id}}">
