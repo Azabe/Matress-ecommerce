@@ -53,7 +53,7 @@ Pending Orders
                 <div class="card-body">
                     @if (Session::has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Success</strong> {{Session::get('error')}}
+                        <strong>Success</strong> {{Session::get('success')}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -95,10 +95,10 @@ Pending Orders
                                         <div class="dropdown-menu dropdown-menu-right"
                                             aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="#" data-toggle="modal"
-                                                data-target="#pending-order-{{$order->id}}">More</a>
+                                                data-target="#pending-order-details-{{$order->id}}">More</a>
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="pending-order-{{$order->id}}" tabindex="-1"
+                                    <div class="modal fade" id="pending-order-details-{{$order->id}}" tabindex="-1"
                                         role="dialog" aria-labelledby="exampleModalLarge" aria-hidden="true">
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
@@ -164,12 +164,16 @@ Pending Orders
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-info btn-pill">Process
-                                                        Order</button>
+                                                    <button type="button" onclick="document.getElementById('form-process-order-{{$order->id}}').submit();" class="btn btn-primary btn-pill">Process Order</button>
+                                                    <form action="{{route('customercare.orders.update', $order->id)}}" method="POST" id="form-process-order-{{$order->id}}">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="PUT">
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </td>
                             </tr>
                             @endforeach

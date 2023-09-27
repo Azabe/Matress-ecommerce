@@ -112,5 +112,6 @@ Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->grou
 Route::middleware('auth:'. Role::CUSTOMER_CARE . '')->prefix('customercare')->group(function() {
     Route::controller(CustomerCareOrdersController::class)->group(function() {
         Route::get('/', 'index')->name('customercare.orders.index');
+        Route::put('/{id}', 'update')->name('customercare.orders.update');
     });
 });
