@@ -59,6 +59,20 @@ class AuthServices
             : back()->withInput()->with('error', 'invalid credentials');
     }
 
+    public function getUpdatePasswordPage($user): View
+    {
+        return view('auth.updatePassword', compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user): RedirectResponse
+    {
+        $user->update([
+            'password' => Hash::make($request->password),
+            'password_confirmed' => true
+        ]);
+        return $this->redirectIfAuthenticated($user);
+    }
+
     public function redirectIfAuthenticated($user): RedirectResponse
     {
         if ($user->status === User::INACTIVE) {
@@ -66,7 +80,7 @@ class AuthServices
             return back()->withInput()->with('error', 'Your account has been closed.. please contact the administrator');
         }
         if (!$user->password_confirmed) {
-            return back()->withInput()->with('error', 'Account not confirmed');
+            return redirect()->route('auth.userConfirm.index');
         }
         if ($user->role->role === Role::ADMIN) {
             return redirect()->route('admin.home');

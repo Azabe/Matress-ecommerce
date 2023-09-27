@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\UpdatePasswordController;
+
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\ProductsController as PublicProductsController;
 
@@ -19,6 +21,7 @@ use App\Http\Controllers\Manager\ProcessingOrdersController;
 use App\Http\Controllers\Manager\AvailableOrdersController;
 
 use App\Http\Services\Auth\AuthServices;
+
 use App\Models\Role;
 
 /*
@@ -50,6 +53,11 @@ Route::prefix('auth')->group(function () {
     Route::controller(RegisterController::class)->prefix('register')->group(function () {
         Route::get('/', 'index')->name('auth.register.index');
         Route::post('/', 'store')->name('auth.register.store');
+    });
+
+    Route::controller(UpdatePasswordController::class)->prefix('user/confirm')->group(function () {
+        Route::get('/', 'index')->name('auth.userConfirm.index');
+        Route::put('/', 'update')->name('auth.userConfirm.update');
     });
     // logout
     Route::post('logout', function () {

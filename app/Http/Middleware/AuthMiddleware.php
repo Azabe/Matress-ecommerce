@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Role;
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,10 @@ class AuthMiddleware
     public function handle(Request $request, Closure $next, string $role): Response
     {
         $userRole = Role::where('role', $role)->first();
-        return (Auth::check() && Auth::user()->role_id === $userRole->id) ? $next($request) : back();
+        return (Auth::check() &&
+            Auth::user()->password_confirmed &&
+            Auth::user()->status === User::ACTIVE &&
+            Auth::user()->role_id === $userRole->id)
+            ? $next($request) : back();
     }
 }

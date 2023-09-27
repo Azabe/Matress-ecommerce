@@ -31,21 +31,21 @@
                         </div>
                         <div class="col-lg-6 mb-4">
                             <input type="tel" placeholder="Your Telephone(250...)" name="telephone"
-                                class="{{ $errors->has('names')? 'error' : '' }}" value="{{old('telephone')}}" maxlength="12" minlength="12">
+                                class="{{ $errors->has('telephone')? 'error' : '' }}" value="{{old('telephone')}}" maxlength="12" minlength="12">
                             @if ($errors->has('telephone'))
                             <span class="text-danger">{{ $errors->first('telephone') }}</span>
                             @endif
                         </div>
                         <div class="col-lg-6 mb-4">
                             <input type="email" placeholder="Your email" name="email"
-                                class="{{ $errors->has('names')? 'error' : '' }}" value="{{old('email')}}">
+                                class="{{ $errors->has('email')? 'error' : '' }}" value="{{old('email')}}">
                             @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
                         <div class="col-lg-6 mb-4">
                             <input type="text" placeholder="Your Tin" name="tin"
-                                class="{{ $errors->has('names')? 'error' : '' }}" value="{{old('tin')}}" maxlength="5" minlength="5">
+                                class="{{ $errors->has('tin')? 'error' : '' }}" value="{{old('tin')}}" maxlength="5" minlength="5">
                             @if ($errors->has('tin'))
                             <span class="text-danger">{{ $errors->first('tin') }}</span>
                             @endif
@@ -63,14 +63,14 @@
                         </div>
                         <div class="col-lg-6 mb-4">
                             <input type="password" placeholder="Your password" name="password"
-                                class="{{ $errors->has('names')? 'error' : '' }}">
+                                class="{{ $errors->has('password')? 'error' : '' }}">
                             @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
                         </div>
                         <div class="col-lg-6 mb-4">
                             <input type="password" placeholder="confirm password" name="password_confirmation"
-                                class="{{ $errors->has('names')? 'error' : '' }}">
+                                class="{{ $errors->has('password_confirmation')? 'error' : '' }}">
                             @if ($errors->has('password_confirmation'))
                             <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                             @endif
