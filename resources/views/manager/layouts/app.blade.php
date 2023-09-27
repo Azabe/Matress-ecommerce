@@ -119,7 +119,7 @@
                     </a>
                   </li>
                   <li>
-                    <a class="sidenav-item-link" href="">
+                    <a class="sidenav-item-link" href="{{route('manager.orders.available.index')}}">
                       <span class="nav-text">Available Orders</span>
                     </a>
                   </li>

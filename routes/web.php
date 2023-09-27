@@ -16,6 +16,7 @@ use App\Http\Controllers\Distributor\OrdersController as DistributorOrdersContro
 use App\Http\Controllers\CustomerCare\OrdersController as CustomerCareOrdersController;
 
 use App\Http\Controllers\Manager\ProcessingOrdersController;
+use App\Http\Controllers\Manager\AvailableOrdersController;
 
 use App\Http\Services\Auth\AuthServices;
 use App\Models\Role;
@@ -84,10 +85,13 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
 });
 
 // Factory Manager
-Route::middleware('auth:'. Role::FACTORY_MANAGER . '')->prefix('manager/orders')->group(function() {
-    Route::controller(ProcessingOrdersController::class)->prefix('pending')->group(function() {
+Route::middleware('auth:' . Role::FACTORY_MANAGER . '')->prefix('manager/orders')->group(function () {
+    Route::controller(ProcessingOrdersController::class)->prefix('pending')->group(function () {
         Route::get('/', 'index')->name('manager.orders.processing.index');
         Route::put('/{id}', 'update')->name('manager.orders.processing.update');
+    });
+    Route::controller(AvailableOrdersController::class)->prefix('available')->group(function () {
+        Route::get('/', 'index')->name('manager.orders.available.index');
     });
 });
 
@@ -112,8 +116,8 @@ Route::middleware('auth:' . Role::DISTRIBUTOR . '')->prefix('distributor')->grou
 });
 
 //Customer care
-Route::middleware('auth:'. Role::CUSTOMER_CARE . '')->prefix('customercare')->group(function() {
-    Route::controller(CustomerCareOrdersController::class)->group(function() {
+Route::middleware('auth:' . Role::CUSTOMER_CARE . '')->prefix('customercare')->group(function () {
+    Route::controller(CustomerCareOrdersController::class)->group(function () {
         Route::get('/', 'index')->name('customercare.orders.index');
         Route::put('/{id}', 'update')->name('customercare.orders.update');
     });
