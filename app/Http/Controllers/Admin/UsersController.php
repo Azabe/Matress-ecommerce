@@ -36,4 +36,9 @@ class UsersController extends Controller
     {
         return (new UsersServices)->changeUserStatus($userId);
     }
+
+    public function print()
+    {
+        return (new UsersServices)->getUsersReports();
+    }
 }

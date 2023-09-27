@@ -67,4 +67,9 @@ class UsersServices
 
         return back()->with('success', 'user status changed successfully');
     }
+
+    public function getUsersReports()
+    {
+        
+    }
 }

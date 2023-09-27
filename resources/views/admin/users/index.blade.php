@@ -26,7 +26,10 @@ Users
         <div class="card card-default">
             <div class="card-header">
                 <h2>Users List</h2>
-                <a class="btn mdi mdi-plus" href="{{route('admin.users.create')}}"> </a>
+                <div style="display: flex;gap: 5px;">
+                    <a class="btn mdi mdi-plus" href="{{route('admin.users.create')}}"> </a>
+                    <a class="btn mdi mdi-printer" href=""> </a>
+                </div>
             </div>
 
             <div class="card-body">
