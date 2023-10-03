@@ -19,5 +19,6 @@ A laravel application that sells mattress, distributors can sign up and view ava
 6. php artisan migrate
 7. php artisan db:seed
 8. php artisan serve
+9. in other terminal run php artisan queue:listen for the job queues
 
 The project is ready on port 8000
