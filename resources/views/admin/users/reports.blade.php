@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <title>Users Report</title>
 </head>
 <style>
+
     @page {
         width: 100%;
         background-color: #ede837;
+        font-family: 'Poppins', sans-serif;
     }
+
     .zui-table {
         border: solid 1px #DDEEEE;
         width: 100%;
@@ -37,63 +41,64 @@
         padding: 14px;
         text-shadow: 1px 1px 1px #fff;
     }
+    .reports-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        background: #00adef;
+        width: 100%;
+        padding: 16px 0;
+        text-align: center
+
+    }
+    footer span {
+        color: #ede837;
+        text-align: center;
+        width: 100%;
+        font-weight: 900;
+        font-size: 24px;
+    }
 </style>
 
 <body>
-   <div>
-    <img src="https://dodoma-logo.s3.eu-north-1.amazonaws.com/logo.png" alt="" width="40%">
-   </div>
-   <div>
-        <h2>Users Report</h2>
-   </div>
+    <div class="reports-header">
+        <img src="https://dodoma-logo.s3.eu-north-1.amazonaws.com/logo.png" alt="" width="40%">
+        <p style="float: right">printed on <?php echo date('Y-m-d')?></p>
+    </div>
+    <div>
+        <h2 style="text-align: center">DODOMA USERS REPORT</h2>
+    </div>
     <table class="zui-table">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Height</th>
-                <th>Born</th>
-                <th>Salary</th>
+                <th>Names</th>
+                <th>Role</th>
+                <th>Residence</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>Tin</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($users as $user)
             <tr>
-                <td>DeMarcus Cousins</td>
-                <td>C</td>
-                <td>6'11"</td>
-                <td>08-13-1990</td>
-                <td>$4,917,000</td>
+                <td>{{$user->names}}</td>
+                <td>{{$user->role->role}}</td>
+                <td>{{$user->residence}}</td>
+                <td>{{$user->telephone}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->tin}}</td>
             </tr>
-            <tr>
-                <td>Isaiah Thomas</td>
-                <td>PG</td>
-                <td>5'9"</td>
-                <td>02-07-1989</td>
-                <td>$473,604</td>
-            </tr>
-            <tr>
-                <td>Ben McLemore</td>
-                <td>SG</td>
-                <td>6'5"</td>
-                <td>02-11-1993</td>
-                <td>$2,895,960</td>
-            </tr>
-            <tr>
-                <td>Marcus Thornton</td>
-                <td>SG</td>
-                <td>6'4"</td>
-                <td>05-05-1987</td>
-                <td>$7,000,000</td>
-            </tr>
-            <tr>
-                <td>Jason Thompson</td>
-                <td>PF</td>
-                <td>6'11"</td>
-                <td>06-21-1986</td>
-                <td>$3,001,000</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
+    <footer>
+        <span>Matelas Dodoma</span>
+    </footer>
 </body>
 
 </html>
