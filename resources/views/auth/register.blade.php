@@ -78,7 +78,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <button class="site-btn">LOGIN NOW</button>
+                            <button class="site-btn">CREATE ACCOUNT</button>
                         </div>
                         <div class="col-lg-6" style="display: flex; align-items:center">
                             <a href="{{route('auth.login.index')}}" style="color: #00adef">Already have an account?</a>

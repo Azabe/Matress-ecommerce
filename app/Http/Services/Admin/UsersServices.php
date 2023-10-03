@@ -11,6 +11,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
 
 class UsersServices
 {
@@ -70,6 +72,10 @@ class UsersServices
 
     public function getUsersReports()
     {
-        
+        $users = User::with('role')->get();
+        $imageUrl = asset('webAssets/img/logo.png');
+        $pdf = Pdf::loadView('admin.users.reports', ['users' => $users, 'image' => $imageUrl]);
+        // $pdf->setPaper('A4', 'portrait');
+        return $pdf->stream();
     }
 }

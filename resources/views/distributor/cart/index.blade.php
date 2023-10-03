@@ -52,7 +52,7 @@
                                         <td class="quy-col">
                                             <div class="quantity">
                                                 <div class="pro-qty">
-                                                    <input type="number" min="0" value="1" class="quantity-input"
+                                                    <input type="number" min="1" value="1" class="quantity-input"
                                                         onkeydown="return false" name="quantities[]">
                                                 </div>
                                             </div>

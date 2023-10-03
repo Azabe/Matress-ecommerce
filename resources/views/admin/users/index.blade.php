@@ -28,7 +28,7 @@ Users
                 <h2>Users List</h2>
                 <div style="display: flex;gap: 5px;">
                     <a class="btn mdi mdi-plus" href="{{route('admin.users.create')}}"> </a>
-                    <a class="btn mdi mdi-printer" href=""> </a>
+                    <a class="btn mdi mdi-printer" href="{{route('admin.users.report.index')}}"> </a>
                 </div>
             </div>
 

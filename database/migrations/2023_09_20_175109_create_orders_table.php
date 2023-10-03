@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('code');
             $table->enum('status', Order::STATUSES)->default(Order::CREATED);
             $table->date('delivery_date')->nullable();
+            $table->enum('payment_status', Order::PAYMENT_STATUSES)->default(Order::UNPAID);
             $table->timestamps();
         });
     }

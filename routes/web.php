@@ -78,6 +78,7 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
         Route::prefix('{userId}')->group(function () {
             Route::put('/', 'update')->name('admin.users.update');
         });
+        Route::get('reports', 'print')->name('admin.users.report.index');
     });
 
     Route::prefix('products')->controller(AdminProductsController::class)->group(function () {

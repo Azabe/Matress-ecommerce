@@ -13,6 +13,11 @@ class Order extends Model
 
     const STATUSES = ['CREATED', 'PENDING', 'PROCESSING', 'APPROVED', 'CANCELED'];
 
+    const PAYMENT_STATUSES = ['PAID', 'UNPAID'];
+
+    const PAID = self::PAYMENT_STATUSES[0];
+    const UNPAID = self::PAYMENT_STATUSES[1];
+
     const CREATED = self::STATUSES[0];
     const PENDING = self::STATUSES[1];
     const PROCESSING = self::STATUSES[2];
@@ -20,7 +25,7 @@ class Order extends Model
     const CANCELED = self::STATUSES[4];
 
     protected $fillable = [
-        'id', 'user_id', 'code', 'status', 'delivery_date'
+        'id', 'user_id', 'code', 'status', 'delivery_date', 'payment_status'
     ];
 
     protected $casts = [

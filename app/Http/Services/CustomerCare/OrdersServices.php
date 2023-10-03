@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\CustomerCare;
 
+use App\Jobs\SendMessage;
 use App\Models\Order;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -26,6 +27,9 @@ class OrdersServices
     public function processOrder(string $orderId): RedirectResponse
     {
         $orderToProcess = Order::find($orderId);
+        // Send message
+        $message = 'Dear ' . $orderToProcess->user->names . ' confirm your order #' . $orderToProcess->code . ' with total of '. $orderToProcess->products()->sum('total_price') .' FRWS by paying using *000# on this code: 00000 ';
+        SendMessage::dispatch($orderToProcess->user->telephone, $message);
         $orderToProcess->update([
             'status' => Order::PROCESSING
         ]);
