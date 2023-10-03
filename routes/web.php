@@ -9,6 +9,7 @@ use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\ProductsController as PublicProductsController;
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\OrdersController as AdminOrdersContoller;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\ProductsController as AdminProductsController;
 
@@ -90,6 +91,10 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
         Route::prefix('{productId}')->group(function () {
             Route::delete('/', 'destroy')->name('admin.products.destroy');
         });
+    });
+
+    Route::prefix('orders')->controller(AdminOrdersContoller::class)->group(function() {
+        Route::get('/', 'index')->name('admin.orders.index');
     });
 });
 

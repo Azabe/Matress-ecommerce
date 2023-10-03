@@ -163,6 +163,23 @@
                 </div>
               </ul>
             </li>
+            <li class="has-sub">
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#orders"
+                aria-expanded="false" aria-controls="email">
+                <i class="mdi mdi-cart"></i>
+                <span class="nav-text">orders</span> <b class="caret"></b>
+              </a>
+              <ul class="collapse" id="orders" data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li>
+                    <a class="sidenav-item-link" href="{{route('admin.orders.index')}}">
+                      <span class="nav-text">Orders List</span>
+
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
           </ul>
 
         </div>
