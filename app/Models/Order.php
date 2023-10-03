@@ -77,4 +77,19 @@ class Order extends Model
                 break;
         }
     }
+    public function renderOrderPaymentStatusBadge(): string
+    {
+        switch ($this->payment_status) {
+            case 'PAID':
+                return 'success';
+                break;
+            case 'UNPAID':
+                return 'danger';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+    }
 }

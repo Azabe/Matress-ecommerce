@@ -64,6 +64,7 @@ Processed Orders
                             <tr>
                                 <th>Order Code</th>
                                 <th>Order Status</th>
+                                <th>Payment Status</th>
                                 <th>Customer Names</th>
                                 <th>Customer TIN</th>
                                 <th>Customer Redisence</th>
@@ -79,6 +80,10 @@ Processed Orders
                                 <td>
                                     <span
                                         class="badge badge-pill badge-{{$order->renderOrderStatusBadge()}}">{{$order->status}}</span>
+                                </td>
+                                <td>
+                                    <span
+                                        class="badge badge-pill badge-{{$order->renderOrderPaymentStatusBadge()}}">{{$order->payment_status}}</span>
                                 </td>
                                 <td>{{$order->user->names}}</td>
                                 <td>{{$order->user->tin}}</td>
@@ -96,8 +101,22 @@ Processed Orders
                                             aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="#" data-toggle="modal"
                                                 data-target="#pending-order-details-{{$order->id}}">More</a>
+                                            @if ($order->payment_status === \App\Models\Order::PAID)
                                             <a class="dropdown-item" href="#" data-toggle="modal"
-                                                data-target="#processing-order-details-{{$order->id}}">Complete Order</a>
+                                                data-target="#processing-order-details-{{$order->id}}">Complete
+                                                Order</a>
+                                            @else
+                                            <a class="dropdown-item" href="#"
+                                                onclick="document.getElementById('confirm-payment-{{$order->id}}').submit();">Confirm
+                                                Payment</a>
+                                            <form id="confirm-payment-{{$order->id}}"
+                                                action="{{route('manager.orders.processing.update', $order->id)}}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <input type="hidden" name="payment" value="PAID">
+                                            </form>
+                                            @endif
                                         </div>
                                     </div>
                                     <!--VIEW MODAL-->
@@ -185,17 +204,21 @@ Processed Orders
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
-                                                <form action="{{route('manager.orders.processing.update', $order->id)}}" method="POST">
+                                                <form action="{{route('manager.orders.processing.update', $order->id)}}"
+                                                    method="POST">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="PUT">
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                          <label for="exampleFormControlInput5">Delivery Date</label>
-                                                          <input type="date" min="<?php echo date('Y-m-d')?>" class="form-control rounded-0 bg-light" name="delivery_date" required>
+                                                            <label for="exampleFormControlInput5">Delivery Date</label>
+                                                            <input type="date" min="<?php echo date('Y-m-d')?>"
+                                                                class="form-control rounded-0 bg-light"
+                                                                name="delivery_date" required>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary btn-pill">Make Order Available</button>
+                                                        <button type="submit" class="btn btn-primary btn-pill">Make
+                                                            Order Available</button>
                                                     </div>
                                                 </form>
                                             </div>

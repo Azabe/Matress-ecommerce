@@ -16,13 +16,20 @@ class OrdersServices
         foreach ($orderToMakeAvailable->products as $product) {
             $this->updateProductQuantity($product->id, $product->pivot->quantity);
         }
-        $orderToMakeAvailable->update([
-            'delivery_date' => $request->delivery_date,
-            'status' => Order::APPROVED
-        ]);
-        $message = 'Dear ' . $orderToMakeAvailable->user->names . ' your order #' . $orderToMakeAvailable->code . ' is available and will be delivered to your residence (' . $orderToMakeAvailable->user->residence . ') on ' . $request->delivery_date . ' ';
-        SendMessage::dispatch($orderToMakeAvailable->user->telephone, $message);
-        return back()->with('success', 'order # ' . $orderToMakeAvailable->code . ' is ready to be picked');
+        if ($request->filled('payment')) {
+            $orderToMakeAvailable->update([
+                'payment_status' => Order::PAID
+            ]);
+            return back()->with('success', 'order # ' . $orderToMakeAvailable->code . ' marked as payment');
+        } else {
+            $orderToMakeAvailable->update([
+                'delivery_date' => $request->delivery_date,
+                'status' => Order::APPROVED
+            ]);
+            $message = 'Dear ' . $orderToMakeAvailable->user->names . ' your order #' . $orderToMakeAvailable->code . ' is available and will be delivered to your residence (' . $orderToMakeAvailable->user->residence . ') on ' . $request->delivery_date . ' ';
+            SendMessage::dispatch($orderToMakeAvailable->user->telephone, $message);
+            return back()->with('success', 'order # ' . $orderToMakeAvailable->code . ' is ready to be picked');
+        }
     }
 
     public function getOrders($status): array
