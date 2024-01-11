@@ -18,7 +18,7 @@ class UsersController extends Controller
     {
         return (new UsersServices)->createNewUser();
     }
-
+ 
     public function store(Request $request): RedirectResponse
     {
         $request->validate([

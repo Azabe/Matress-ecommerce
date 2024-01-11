@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'font_family' => 'Helvetica, Arial, sans-serif',
+    'font_family' => 'Nunito',
 
     'font_color' => '#373d3f',
 

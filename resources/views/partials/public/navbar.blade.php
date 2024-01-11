@@ -45,7 +45,6 @@
             <!-- menu -->
             <ul class="main-menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="#">About us</a></li>
                 <li><a href="{{route('public.products.index')}}">Shop</a></li>
                 @if (Auth::check() && Auth::user()->role->role === \App\Models\Role::DISTRIBUTOR)
                 <li><a href="{{route('distributor.orders.index')}}">My Orders</a></li>

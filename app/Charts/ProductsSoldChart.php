@@ -43,4 +43,8 @@ class ProductsSoldChart
             ->addData($orderedQuantities)
             ->setLabels($productNames);
     }
+
+    public function product_report(){
+        
+    }
 }

@@ -58,14 +58,14 @@
                             <h6>{{$product->title}}</h6>
                             <p>{{$product->price}} RWF</p>
                             <p>{{$product->pivot->quantity}} Piece(s) Ordered</p>
-                            <p>Total: {{$product->price * $product->pivot->quantity}} FRWS</p>
+                            <p>Total: {{$product->price * $product->pivot->quantity}} FRW</p>
                         </li>
                         @endforeach
                     </ul>
                     <ul class="price-list">
-                        <li>Total<span>{{$order->products()->sum('total_price')}} FRWS</span></li>
+                        <li>Total<span>{{$order->products()->sum('total_price')}} FRW</span></li>
                         <li>Shipping<span>free</span></li>
-                        <li class="total">Grand Total<span>{{$order->products()->sum('total_price')}} FRWS</span></li>
+                        <li class="total">Grand Total<span>{{$order->products()->sum('total_price')}} FRW</span></li>
                     </ul>
                 </div>
             </div>

@@ -30,7 +30,7 @@ Products
             </div>
 
             <div class="card-body">
-                <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                <table id="productsTable" class="table table-hover table-product" style="width:100%; height:100%">
                     <thead>
                         <tr>
                             <th>Image</th>
@@ -102,23 +102,32 @@ Products
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <ul class="list-group">
-                                                        <li class="list-group-item disabled" aria-disabled="true">
-                                                            Product Quantity: {{$product->quantity}}</li>
-                                                        <li class="list-group-item disabled" aria-disabled="true">
-                                                            Product Height: {{$product->height}}</li>
-                                                        <li class="list-group-item disabled" aria-disabled="true">
-                                                            Product Width: {{$product->width}}</li>
-                                                        <li class="list-group-item disabled" aria-disabled="true">
-                                                            Product Lenght: {{$product->length}}</li>
-                                                        <li class="list-group-item disabled" aria-disabled="true">
-                                                            Product Description: {{$product->description}}</li>
-                                                    </ul>
-                                                </div>
+                                                    
+    <form id="updateProductForm" action="{{ route('update.product', ['id' => $product->id]) }}" method="POST" style="display: none;">
+        @csrf
+        @method('PUT')
+
+        <ul class="list-group">
+            <li class="list-group-item">Product Quantity: <span id="quantity">{{$product->quantity}}</span></li>
+            <li class="list-group-item">Product Height: <span id="height">{{$product->height}}</span></li>
+            <li class="list-group-item">Product Width: <span id="width">{{$product->width}}</span></li>
+            <li class="list-group-item">Product Length: <span id="length">{{$product->length}}</span></li>
+            <li class="list-group-item">Product Description: <span id="description">{{$product->description}}</span></li>
+        </ul>
+
+        <!-- Input fields for updating properties -->
+        <div class="form-group">
+            <label for="new_quantity">New Quantity:</label>
+            <input type="text" class="form-control" id="new_quantity" name="new_quantity" placeholder="Enter new quantity">
+        </div>
+        <!-- Add other input fields for updating properties if needed -->
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+</div>
                                                 <div class="modal-footer">
-                                                    @if ($product->quantity > 0)
-                                                    <a class="btn btn-info btn-pill" href="#">Update Product</a>
-                                                    @else
+                                                    <button type="button" class="btn btn-info btn-pill" onclick="toggleUpdateForm()">Update Product</button>
+                                                    
                                                     <a class="btn btn-danger btn-pill" href="#"
                                                         onclick="document.getElementById('form-delete-{{$product->id}}').submit()">Delete
                                                         Product</a>
@@ -128,7 +137,7 @@ Products
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                     </form>
-                                                    @endif
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -142,5 +151,11 @@ Products
             </div>
         </div>
     </div>
-</div>
+</div><br>
 @endsection
+<script>
+        function toggleUpdateForm() {
+            var form = document.getElementById('updateProductForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>

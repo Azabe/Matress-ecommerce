@@ -60,11 +60,59 @@ Dashboard
         </div>
 
     </div>
+<!-- ----------------------------------------------------------- -->
+<div class="row">
+        <div class="col-xl-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h2>most ordered product Report</h2> 
+                </div>
+                <form action="{{ route('admin.products.reports') }}" method="get">
+                @csrf
+                <div class="card-body">
+                <div class="row">
+                   
+                                <div class="form-group col-sm-6">
+                                <label>From:</label>
+                <input  type="date" name="start_date" class="form-control col-sm-7">
+</div><div class="form-group col-sm-6">
+<label>To:</label>
+                    <input type="date" name="end_date" class="form-control col-sm-7">
+</div>
+                    <button target="_blank" style="font-size: 20px;" class="btn mdi mdi-printer" type="submit"> </button>
+            </div>
+                </div>
+            </div>
+        </div></form>
+        <div class="col-xl-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h2>Districts with most orders report</h2>
+                </div>
+                <form action="{{ route('admin.orders.reports') }}" method="get">
+                @csrf
+                <div class="card-body">
+                <div class="row">
+                   
+                                <div class="form-group col-sm-6">
+                                <label>From:</label>
+                <input  type="date" name="start_date" class="form-control col-sm-7">
+</div><div class="form-group col-sm-6">
+<label>To:</label>
+                    <input type="date" name="end_date" class="form-control col-sm-7">
+</div>
+                    <button target="_blank" style="font-size: 20px;" class="btn mdi mdi-printer" type="submit"> </button>
+            </div>
+                </div>
+            </div></div>
+        </div></form>
+
+<!-- ------------------------------------------------------------------ -->
     <div class="row">
         <div class="col-xl-6">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Orders Per Product Summary</h2>
+                    <h2>Orders Per Product</h2> 
                 </div>
                 <div class="card-body">
                     {!! $productsSoldChart->container() !!}
@@ -74,7 +122,7 @@ Dashboard
         <div class="col-xl-6">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Orders Per District Summary</h2>
+                    <h2>Orders Per District</h2>
                 </div>
                 <div class="card-body">
                     {!! $districtsOrdersChart->container() !!}
@@ -115,7 +163,7 @@ Dashboard
                                 <td>{{$order->user->tin}}</td>
                                 <td>{{$order->user->residence}}</td>
                                 <td>{{$order->user->telephone}}</td>
-                                <td>{{$order->products()->sum('total_price')}} FRWS</td>
+                                <td>{{$order->products()->sum('total_price')}} FRW</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
@@ -164,7 +212,7 @@ Dashboard
                                                                                     <i class="mdi mdi-cash mr-1"></i>
                                                                                     <span>Product price:
                                                                                         <b>{{$product->price}}
-                                                                                            FRWS</b></span>
+                                                                                            FRW</b></span>
                                                                                 </li>
                                                                                 <li class="d-flex">
                                                                                     <i class="mdi mdi-cart mr-1"></i>
@@ -175,7 +223,7 @@ Dashboard
                                                                                     <i class="mdi mdi-cash mr-1"></i>
                                                                                     <span>Total:
                                                                                         <b>{{$product->pivot->total_price}}
-                                                                                            FRWS</b></span>
+                                                                                            FRW</b></span>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -188,7 +236,7 @@ Dashboard
                                                             <div class="col-md-12">
                                                                 <h5 class="ml-3">Grand Total:
                                                                     <b>{{$order->products()->sum('total_price')}}
-                                                                        FRWS</b>
+                                                                        FRW</b>
                                                                 </h5>
                                                             </div>
                                                         </div>

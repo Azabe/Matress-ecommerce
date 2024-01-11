@@ -157,7 +157,7 @@ Pending Orders
                                                             <div class="col-md-12">
                                                                 <h5 class="ml-3">Grand Total:
                                                                     <b>{{$order->products()->sum('total_price')}}
-                                                                        FRWS</b>
+                                                                        FRW</b>
                                                                 </h5>
                                                             </div>
                                                         </div>

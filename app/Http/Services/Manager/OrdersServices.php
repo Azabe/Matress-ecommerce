@@ -26,7 +26,7 @@ class OrdersServices
                 'delivery_date' => $request->delivery_date,
                 'status' => Order::APPROVED
             ]);
-            $message = 'Dear ' . $orderToMakeAvailable->user->names . ' your order #' . $orderToMakeAvailable->code . ' is available and will be delivered to your residence (' . $orderToMakeAvailable->user->residence . ') on ' . $request->delivery_date . ' ';
+            $message = 'Dear ' . $orderToMakeAvailable->user->names . ' your order #' . $orderToMakeAvailable->code . ' is available and will be delivered to your place of work (' . $orderToMakeAvailable->user->residence . ') on ' . $request->delivery_date . ' ';
             SendMessage::dispatch($orderToMakeAvailable->user->telephone, $message);
             return back()->with('success', 'order # ' . $orderToMakeAvailable->code . ' is ready to be picked');
         }

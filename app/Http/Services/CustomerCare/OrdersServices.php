@@ -28,7 +28,7 @@ class OrdersServices
     {
         $orderToProcess = Order::find($orderId);
         // Send message
-        $message = 'Dear ' . $orderToProcess->user->names . ' confirm your order #' . $orderToProcess->code . ' with total of '. $orderToProcess->products()->sum('total_price') .' FRWS by paying using *000# on this code: 00000 ';
+        $message = 'Dear ' . $orderToProcess->user->names . ' confirm your order #' . $orderToProcess->code . ' with total of '. $orderToProcess->products()->sum('total_price') .' FRWS by paying using *182*8*1*005566#';
         SendMessage::dispatch($orderToProcess->user->telephone, $message);
         $orderToProcess->update([
             'status' => Order::PROCESSING

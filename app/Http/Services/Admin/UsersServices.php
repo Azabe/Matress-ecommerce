@@ -77,5 +77,5 @@ class UsersServices
         $pdf = Pdf::loadView('admin.users.reports', ['users' => $users, 'image' => $imageUrl]);
         // $pdf->setPaper('A4', 'portrait');
         return $pdf->stream();
-    }
+    } 
 }

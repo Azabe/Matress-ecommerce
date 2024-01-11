@@ -79,10 +79,14 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
         Route::prefix('{userId}')->group(function () {
             Route::put('/', 'update')->name('admin.users.update');
         });
-        Route::get('reports', 'print')->name('admin.users.report.index');
-    });
+        Route::get('reports', 'print')->name('admin.users.report.index'); 
+    }); 
 
     Route::prefix('products')->controller(AdminProductsController::class)->group(function () {
+        Route::get('/generate-pdf', 'generatePdf')->name('admin.products.reports');
+        Route::put('/products/{id}', [AdminProductsController::class, 'update'])->name('update.product');
+
+
         Route::get('/', 'index')->name('admin.products.index');
         Route::prefix('create')->group(function () {
             Route::get('/', 'create')->name('admin.products.create');
@@ -94,6 +98,7 @@ Route::middleware('auth:' . Role::ADMIN . '')->prefix('admin')->group(function (
     });
 
     Route::prefix('orders')->controller(AdminOrdersContoller::class)->group(function() {
+        Route::get('/order-pdf', 'orderPdf')->name('admin.orders.reports');
         Route::get('/', 'index')->name('admin.orders.index');
     });
 });

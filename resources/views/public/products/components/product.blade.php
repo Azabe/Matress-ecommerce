@@ -7,7 +7,7 @@
         <div class="tag-sale warning">Almost out</div>
         @endif
         @endif
-        <img src="{{ asset('storage/' . $product->image) }}" alt="" height={{$height}}>
+        <img src="{{ asset('storage/' . $product->image) }}" alt="" height="250px" width="450px">
         <div class="pi-links">
             <a href="{{route('public.products.show', $product->id)}}" class="add-card"><i class="fa fa-eye"></i><span>VIEW MORE</span></a>
         </div>
